@@ -1,29 +1,16 @@
-
 {
   "placeholderImages": [
     {
-      "id": "hero-bg",
-      "description": "Modern abstract background for hero section",
-      "imageUrl": "https://picsum.photos/seed/hero1/1200/600",
-      "imageHint": "abstract technology"
+      "id": "hero-profile",
+      "description": "Professional headshot placeholder",
+      "imageUrl": "https://picsum.photos/seed/julio/600/600",
+      "imageHint": "professional man"
     },
     {
-      "id": "feature-1",
-      "description": "Innovation feature icon",
-      "imageUrl": "https://picsum.photos/seed/feat1/400/300",
-      "imageHint": "innovation growth"
-    },
-    {
-      "id": "feature-2",
-      "description": "Security feature icon",
-      "imageUrl": "https://picsum.photos/seed/feat2/400/300",
-      "imageHint": "secure shield"
-    },
-    {
-      "id": "feature-3",
-      "description": "AI feature icon",
-      "imageUrl": "https://picsum.photos/seed/feat3/400/300",
-      "imageHint": "artificial intelligence"
+      "id": "project-1",
+      "description": "Dashboard preview",
+      "imageUrl": "https://picsum.photos/seed/proj1/800/600",
+      "imageHint": "software dashboard"
     }
   ]
 }
