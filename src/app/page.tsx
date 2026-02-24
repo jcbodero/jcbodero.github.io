@@ -23,7 +23,10 @@ import {
   Sparkles,
   Server,
   Users,
-  Zap
+  Zap,
+  Trophy,
+  Cpu,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function Home() {
@@ -69,9 +72,21 @@ export default function Home() {
   ];
 
   const achievements = [
-    { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, un evento oficial de AWS patrocinado por Xtrim, destacando en el Workshop especializado de IA." },
-    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas para garantizar la escalabilidad." },
-    { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles y estándares de excelencia." }
+    { 
+      title: "2do Lugar Amazon Q", 
+      icon: <Trophy className="w-10 h-10 text-primary mb-4" />,
+      description: "Reconocimiento nacional en el concurso Amazon Q Developer, un evento oficial de AWS patrocinado por Xtrim, destacando en el Workshop especializado de IA." 
+    },
+    { 
+      title: "Arquitectura Escalable", 
+      icon: <Cpu className="w-10 h-10 text-primary mb-4" />,
+      description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas para garantizar la escalabilidad." 
+    },
+    { 
+      title: "Liderazgo de Equipos", 
+      icon: <ShieldCheck className="w-10 h-10 text-primary mb-4" />,
+      description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles y estándares de excelencia." 
+    }
   ];
 
   return (
@@ -161,9 +176,12 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {achievements.map((item, i) => (
-              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col justify-center min-h-[200px]">
-                <div className="text-xl font-bold text-primary mb-3 text-center">{item.title}</div>
-                <div className="text-sm opacity-90 text-left leading-relaxed">{item.description}</div>
+              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col items-center justify-center text-center min-h-[260px]">
+                <div className="flex flex-col items-center">
+                  {item.icon}
+                  <div className="text-xl font-bold text-primary mb-3">{item.title}</div>
+                  <div className="text-sm opacity-90 text-left leading-relaxed">{item.description}</div>
+                </div>
               </div>
             ))}
           </div>
