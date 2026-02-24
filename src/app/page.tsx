@@ -21,7 +21,9 @@ import {
   GraduationCap,
   Award,
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  Sparkles,
+  Bot
 } from 'lucide-react';
 
 export default function Home() {
@@ -30,12 +32,12 @@ export default function Home() {
   const linkedinUrl = "https://linkedin.com/in/juliobodc";
 
   const skillCategories = [
+    { title: 'IA & Vibe Coding', icon: <Sparkles className="w-5 h-5" />, skills: ['IA Generativa (LLMs)', 'Entrenamiento de Modelos', 'Vibe Coding', 'ChatGPT', 'Amazon Q', 'Claude', 'Cursor'] },
     { title: 'Frontend', icon: <Code2 className="w-5 h-5" />, skills: ['React (Next.js)', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Backend', icon: <Terminal className="w-5 h-5" />, skills: ['Node.js (NestJS, AdonisJS)', 'Go', 'Python (Flask)', 'C# (ASP.NET)', 'Java (Spring Boot)'] },
-    { title: 'DevOps & Cloud', icon: <Cloud className="w-5 h-5" />, skills: ['AWS', 'Azure (Básico)', 'Google Cloud', 'Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins'] },
-    { title: 'Arquitectura', icon: <Layers className="w-5 h-5" />, skills: ['Hexagonal', 'MVC', 'Microservicios', 'Event-Driven'] },
-    { title: 'Bases de Datos', icon: <Database className="w-5 h-5" />, skills: ['SQL', 'MySQL', 'MongoDB', 'Redis', 'PostgreSQL'] },
-    { title: 'Otros', icon: <Cpu className="w-5 h-5" />, skills: ['Zoho CRM', 'Apache Kafka', 'RabbitMQ', 'Git', 'Bitbucket'] },
+    { title: 'DevOps & Cloud', icon: <Cloud className="w-5 h-5" />, skills: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins'] },
+    { title: 'Arquitectura', icon: <Layers className="w-5 h-5" />, skills: ['Hexagonal', 'Microservicios', 'Event-Driven'] },
+    { title: 'Bases de Datos', icon: <Database className="w-5 h-5" />, skills: ['SQL', 'PostgreSQL', 'MongoDB', 'Redis'] },
   ];
 
   const experience = [
@@ -66,9 +68,9 @@ export default function Home() {
   ];
 
   const achievements = [
+    { title: "2do Lugar Amazon Q", description: "Ganador del segundo lugar en el concurso nacional Amazon Q Developer y Workshop especializado." },
     { title: "30% Eficiencia", description: "Incremento en despliegues con CI/CD automatizado." },
-    { title: "25% Calidad", description: "Reducción de errores en producción tras migración a NestJS." },
-    { title: "Automatización", description: "Proceso de facturación optimizado mediante Zoho CRM." }
+    { title: "25% Calidad", description: "Reducción de errores en producción tras migración a NestJS." }
   ];
 
   return (
@@ -90,7 +92,7 @@ export default function Home() {
                 </a>
               </Button>
             <Button size="sm" className="bg-accent hover:bg-accent/90" asChild>
-              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">Descargar CV</a>
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </Button>
           </div>
         </div>
@@ -100,14 +102,14 @@ export default function Home() {
       <section className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         <div>
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
-            Full Stack Senior
+            Full Stack Senior & AI Specialist
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 leading-tight">
             Julio Cesar <br/><span className="text-accent">Bodero Castro</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            “+5 años desarrollando soluciones escalables en frontend y backend, con enfoque en automatización, CI/CD y arquitectura moderna.”
+            “+5 años desarrollando soluciones escalables con enfoque en **IA Generativa**, automatización avanzada y Vibe Coding para optimizar el ciclo de desarrollo.”
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
@@ -138,12 +140,12 @@ export default function Home() {
           {/* Decorative floating badges */}
           <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                <CheckCircle2 className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                <Bot className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground font-medium">Disponibilidad</p>
-                <p className="text-sm font-bold">Proyectos Senior</p>
+                <p className="text-xs text-muted-foreground font-medium">Expertise</p>
+                <p className="text-sm font-bold">Generative AI</p>
               </div>
             </div>
           </div>
@@ -155,14 +157,13 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Perfil Profesional</h2>
           <p className="text-xl leading-relaxed opacity-90">
-            Más de 5 años de experiencia desarrollando soluciones escalables en entornos frontend y backend. 
-            Especializado en optimización de procesos, automatización de despliegues y arquitectura de software 
-            robusta para empresas de alta tecnología.
+            Especializado en **IA Generativa** y optimización de procesos mediante **Vibe Coding**. 
+            Aplico modelos LLM y arquitecturas modernas para reducir el tiempo de comercialización y elevar la calidad del código en entornos empresariales.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {achievements.map((item, i) => (
               <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
-                <div className="text-3xl font-bold text-primary mb-2">{item.title}</div>
+                <div className="text-xl font-bold text-primary mb-2">{item.title}</div>
                 <div className="text-sm opacity-80">{item.description}</div>
               </div>
             ))}
@@ -174,8 +175,8 @@ export default function Home() {
       <section id="skills" className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Stack Tecnológico</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Dominio de herramientas modernas para el ciclo completo de vida del software.</p>
+            <h2 className="text-4xl font-bold mb-4">Stack Tecnológico & AI</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Integración de herramientas de IA y desarrollo Full Stack de alto nivel.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillCategories.map((cat, i) => (
@@ -294,7 +295,7 @@ export default function Home() {
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">¿Hablamos?</h2>
-              <p className="opacity-80 text-lg mb-10 leading-relaxed">Estoy disponible para proyectos desafiantes y roles de liderazgo técnico.</p>
+              <p className="opacity-80 text-lg mb-10 leading-relaxed">Disponible para proyectos que involucren IA, arquitectura escalable y transformación digital.</p>
               <div className="space-y-8">
                 <div className="flex items-center gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
@@ -341,7 +342,7 @@ export default function Home() {
           <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
             <h3 className="text-3xl font-bold mb-6">Envíame un mensaje</h3>
             <p className="text-muted-foreground mb-10 text-lg">
-              Ya sea para una oportunidad laboral o una consulta técnica, estaré encantado de conversar.
+              Si buscas optimizar tu flujo de desarrollo con IA o necesitas un Senior Full Stack, conversemos.
             </p>
             <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild>
               <a href="mailto:j.boderoc@gmail.com">
