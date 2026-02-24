@@ -15,7 +15,6 @@ import {
   MapPin, 
   Phone,
   FileText,
-  TrendingUp,
   Github,
   CheckCircle2,
   GraduationCap,
@@ -26,6 +25,8 @@ import {
 
 export default function Home() {
   const profileImage = PlaceHolderImages.find(img => img.id === 'hero-profile');
+  const githubUrl = "https://github.com/jcbodero";
+  const linkedinUrl = "https://linkedin.com/in/juliobodc";
 
   const skillCategories = [
     { title: 'Frontend', icon: <Code2 className="w-5 h-5" />, skills: ['React (Next.js)', 'TypeScript', 'Tailwind CSS'] },
@@ -99,8 +100,8 @@ export default function Home() {
             “+5 años desarrollando soluciones escalables en frontend y backend, con enfoque en automatización, CI/CD y arquitectura moderna.”
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8">
-              Contactar
+            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8" asChild>
+              <a href="#contacto">Contactar</a>
             </Button>
             <Button size="lg" variant="outline" className="gap-2">
               <FileText className="w-4 h-4" /> Ver Curriculum
@@ -275,11 +276,15 @@ export default function Home() {
               </div>
             </div>
             <div className="flex gap-4 mt-12">
-              <Button size="icon" variant="ghost" className="hover:bg-white/10">
-                <Linkedin className="w-5 h-5" />
+              <Button size="icon" variant="ghost" className="hover:bg-white/10" asChild>
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </Button>
-              <Button size="icon" variant="ghost" className="hover:bg-white/10">
-                <Github className="w-5 h-5" />
+              <Button size="icon" variant="ghost" className="hover:bg-white/10" asChild>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5" />
+                </a>
               </Button>
             </div>
           </div>
@@ -288,8 +293,10 @@ export default function Home() {
             <p className="text-muted-foreground mb-8">
               Ya sea para una oportunidad laboral o una consulta técnica, estaré encantado de conversar.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2 w-full">
-              Abrir Correo Electrónico <ExternalLink className="w-4 h-4" />
+            <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2 w-full" asChild>
+              <a href="mailto:j.boderoc@gmail.com">
+                Abrir Correo Electrónico <ExternalLink className="w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
@@ -300,8 +307,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm">
           <p>© {new Date().getFullYear()} Julio Cesar Bodero Castro. Built with Next.js & Passion.</p>
           <div className="flex gap-8">
-            <a href="https://linkedin.com/in/juliobodc" className="hover:text-primary">LinkedIn</a>
-            <a href="#" className="hover:text-primary">GitHub</a>
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
           </div>
         </div>
       </footer>
