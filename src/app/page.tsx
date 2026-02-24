@@ -5,12 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { 
-  Code2, 
   Layers, 
   Cloud, 
   Database, 
   Terminal, 
-  Cpu, 
   Mail, 
   Linkedin, 
   MapPin, 
@@ -23,7 +21,6 @@ import {
   ExternalLink,
   MessageSquare,
   Sparkles,
-  Bot,
   Server,
   Users,
   Zap
@@ -49,32 +46,32 @@ export default function Home() {
       company: "XTRIM S.A.",
       role: "Especialista Desarrollo",
       period: "Julio 2025 – Actual",
-      description: "Liderazgo en integración de sistemas legacy mediante PL/SQL y desarrollo de microservicios con Java Spring Boot y Flask. Validación end-to-end de provisión de servicios."
+      description: "Liderazgo técnico en la integración de sistemas legacy mediante PL/SQL y desarrollo de microservicios robustos con Java Spring Boot y Flask. Supervisión de validaciones end-to-end para garantizar la provisión eficiente de servicios a gran escala."
     },
     {
       company: "Nexti Business Solutions S.A.",
       role: "Ingeniero de Desarrollo",
       period: "Abril 2025 – Julio 2025",
-      description: "Desarrollo de sistemas ERP utilizando ASP.NET Core, Node.js y React. Creación de reportes complejos con T-SQL y Reporting Services."
+      description: "Diseño y despliegue de sistemas ERP utilizando ASP.NET Core, Node.js y React. Implementación de reportes analíticos complejos mediante T-SQL y Reporting Services para la toma de decisiones estratégicas."
     },
     {
       company: "London Underwriters LLC",
       role: "Programador",
       period: "Marzo 2020 – Abril 2025",
-      description: "Automatización de flujos de trabajo con Node.js y Zoho CRM. Desarrollo de aplicaciones web críticas para facturación y gestión de seguros mediante APIs REST."
+      description: "Automatización integral de flujos de trabajo críticos utilizando Node.js y Zoho CRM. Desarrollo de aplicaciones web de alta disponibilidad para facturación y gestión de seguros mediante arquitecturas basadas en APIs REST."
     },
     {
       company: "Easymetering S.A.",
       role: "Programador Junior",
       period: "2019",
-      description: "Implementación de seguridad con OAuth 2.0 y servicios VoIP. Desarrollo frontend con AngularJS e integración con Odoo ERP."
+      description: "Fortalecimiento de la seguridad de plataformas mediante OAuth 2.0 y servicios VoIP. Desarrollo frontend con AngularJS e integración técnica con el ecosistema Odoo ERP."
     }
   ];
 
   const achievements = [
-    { title: "2do Lugar Amazon Q", description: "Ganador del segundo lugar en el concurso nacional Amazon Q Developer y Workshop especializado." },
-    { title: "Escalabilidad & Optimización", description: "Experto en levantar plataformas y optimizar el rendimiento de aplicaciones mediante mejora de arquitectura." },
-    { title: "Liderazgo de Equipos", description: "Experiencia liderando equipos técnicos de 5 a 7 personas bajo metodologías ágiles." }
+    { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, destacando en el Workshop especializado de IA." },
+    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de infraestructuras críticas." },
+    { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles." }
   ];
 
   return (
@@ -112,7 +109,7 @@ export default function Home() {
             Julio Cesar <br/><span className="text-accent">Bodero Castro</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed text-justify">
             Ingeniero en Telemática con mención en Investigación y más de 6 años de experiencia diseñando, desarrollando y optimizando plataformas tecnológicas escalables. Especializado en arquitectura de microservicios, integración de sistemas, optimización de rendimiento e implementación de soluciones con IA Generativa (LLMs). Experiencia liderando equipos técnicos y mejorando procesos mediante automatización y DevOps.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -141,7 +138,6 @@ export default function Home() {
               />
             </div>
           )}
-          {/* Decorative floating badges */}
           <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
@@ -160,15 +156,14 @@ export default function Home() {
       <section id="perfil" className="py-24 bg-accent text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Perfil Profesional</h2>
-          <p className="text-xl leading-relaxed opacity-90">
-            Experto en **levantar plataformas robustas** y optimizar rendimientos críticos mediante la mejora de arquitecturas de software. 
-            Con experiencia liderando equipos de **5 a 7 personas**, aplico IA Generativa y Vibe Coding para acelerar despliegues y garantizar la excelencia técnica.
+          <p className="text-xl leading-relaxed opacity-90 text-justify">
+            Especialista en la **arquitectura y despliegue de plataformas de alta disponibilidad**, enfocado en la optimización de rendimientos críticos y la evolución de sistemas complejos. Con una sólida trayectoria liderando equipos de **5 a 7 profesionales**, implemento soluciones de **IA Generativa y Vibe Coding** para transformar los ciclos de desarrollo, acelerar los tiempos de mercado (Time-to-Market) y garantizar la excelencia técnica en cada entrega.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-left">
             {achievements.map((item, i) => (
               <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
                 <div className="text-xl font-bold text-primary mb-2">{item.title}</div>
-                <div className="text-sm opacity-80">{item.description}</div>
+                <div className="text-sm opacity-80 text-justify">{item.description}</div>
               </div>
             ))}
           </div>
@@ -216,14 +211,14 @@ export default function Home() {
                 <div className="w-5 h-5 rounded-full bg-primary ring-4 ring-primary/20 z-10 group-hover:scale-125 transition-transform"></div>
                 {i !== experience.length - 1 && <div className="w-0.5 h-full bg-slate-200 mt-2"></div>}
               </div>
-              <div className="pb-12">
+              <div className="pb-12 flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
                   <h3 className="text-2xl font-bold text-accent group-hover:text-primary transition-colors">{exp.role}</h3>
                   <Badge className="bg-primary/10 text-primary border-primary/20 px-3 py-1">{exp.period}</Badge>
                 </div>
                 <p className="font-bold text-slate-800 text-lg mb-4">{exp.company}</p>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-primary/20 transition-all">
-                   <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                   <p className="text-muted-foreground leading-relaxed text-justify">{exp.description}</p>
                 </div>
               </div>
             </div>
@@ -234,7 +229,6 @@ export default function Home() {
       {/* Education & Certs */}
       <section className="py-24 bg-slate-900 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 relative">
-          {/* Education */}
           <div>
             <div className="flex items-center gap-3 mb-10">
               <div className="p-3 bg-primary/20 rounded-xl">
@@ -246,14 +240,13 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10 group-hover:bg-primary/20 transition-all"></div>
               <h3 className="text-2xl font-bold mb-2">Ingeniero en Telemática</h3>
               <p className="text-primary font-bold text-lg mb-6">ESPOL (2014 – 2020)</p>
-              <div className="space-y-4 text-slate-300">
+              <div className="space-y-4 text-slate-300 text-justify">
                 <p className="flex items-start gap-3">• <span>Mención en Investigación</span></p>
                 <p className="flex items-start gap-3">• <span>Tesis: “Predicción de incidencias de cargas de trabajo excesivas en entornos virtualizados usando aprendizaje automático”</span></p>
               </div>
             </div>
           </div>
 
-          {/* Certs & Languages */}
           <div>
             <div className="flex items-center gap-3 mb-10">
               <div className="p-3 bg-primary/20 rounded-xl">
@@ -299,7 +292,7 @@ export default function Home() {
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">¿Hablamos?</h2>
-              <p className="opacity-80 text-lg mb-10 leading-relaxed">Disponible para liderar proyectos que involucren IA, arquitectura escalable y optimización de plataformas.</p>
+              <p className="opacity-80 text-lg mb-10 leading-relaxed text-justify">Disponible para liderar proyectos que involucren IA, arquitectura escalable y optimización de plataformas de alto rendimiento.</p>
               <div className="space-y-8">
                 <div className="flex items-center gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
@@ -345,8 +338,8 @@ export default function Home() {
           </div>
           <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
             <h3 className="text-3xl font-bold mb-6">Envíame un mensaje</h3>
-            <p className="text-muted-foreground mb-10 text-lg">
-              Si buscas optimizar tu plataforma o necesitas un Líder Técnico Senior, conversemos.
+            <p className="text-muted-foreground mb-10 text-lg text-justify">
+              Si buscas optimizar tu plataforma tecnológica o necesitas un Líder Técnico Senior con enfoque en resultados y escalabilidad, conversemos sobre cómo puedo aportar valor a tu organización.
             </p>
             <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild>
               <a href="mailto:j.boderoc@gmail.com">
@@ -363,7 +356,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="font-bold text-2xl tracking-tight text-accent">JCB<span className="text-primary">.</span></span>
-            <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Julio Cesar Bodero Castro.</p>
+            <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Julio Cesar Bodero Castro. Todos los derechos reservados.</p>
           </div>
           <div className="flex gap-10 font-medium text-slate-600">
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
