@@ -70,7 +70,7 @@ export default function Home() {
 
   const achievements = [
     { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, destacando en el Workshop especializado de IA." },
-    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de infraestructuras críticas." },
+    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas." },
     { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles." }
   ];
 
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Perfil Profesional</h2>
           <p className="text-xl leading-relaxed opacity-90 text-justify">
-            Especialista en la **arquitectura y despliegue de plataformas de alta disponibilidad**, enfocado en la optimización de rendimientos críticos y la evolución de sistemas complejos. Con una sólida trayectoria liderando equipos de **5 a 7 profesionales**, implemento soluciones de **IA Generativa y Vibe Coding** para transformar los ciclos de desarrollo, acelerar los tiempos de mercado (Time-to-Market) y garantizar la excelencia técnica en cada entrega.
+            Especialista en la arquitectura y despliegue de plataformas de alta disponibilidad, enfocado en la optimización de rendimientos críticos y la evolución de sistemas complejos. Con una sólida trayectoria liderando equipos de 5 a 7 profesionales, implemento soluciones de IA Generativa y Vibe Coding para transformar los ciclos de desarrollo, acelerar los tiempos de mercado (Time-to-Market) y garantizar la excelencia técnica en cada entrega.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-left">
             {achievements.map((item, i) => (
