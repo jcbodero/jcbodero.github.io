@@ -109,7 +109,7 @@ export default function Home() {
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            “+5 años desarrollando soluciones escalables con enfoque en **IA Generativa**, automatización avanzada y Vibe Coding para optimizar el ciclo de desarrollo.”
+            “+6 años desarrollando soluciones escalables con enfoque en **IA Generativa**, automatización avanzada y Vibe Coding para optimizar el ciclo de desarrollo.”
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
