@@ -106,14 +106,14 @@ export default function Home() {
       <section className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
         <div>
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
-            Senior Full Stack & Team Lead
+            Senior Full Stack & Lead
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 leading-tight">
             Julio Cesar <br/><span className="text-accent">Bodero Castro</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-            “+6 años desarrollando soluciones escalables con enfoque en **IA Generativa**, experto en levantar plataformas y optimizar rendimientos mejorando arquitecturas modernas.”
+            Ingeniero en Telemática con mención en Investigación y más de 6 años de experiencia diseñando, desarrollando y optimizando plataformas tecnológicas escalables. Especializado en arquitectura de microservicios, integración de sistemas, optimización de rendimiento e implementación de soluciones con IA Generativa (LLMs). Experiencia liderando equipos técnicos y mejorando procesos mediante automatización y DevOps.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
@@ -121,7 +121,7 @@ export default function Home() {
             </Button>
             <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5" asChild>
               <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                <FileText className="w-4 h-4" /> Ver Curriculum
+                <FileText className="w-4 h-4" /> Ver Perfil Profesional
               </a>
             </Button>
           </div>
