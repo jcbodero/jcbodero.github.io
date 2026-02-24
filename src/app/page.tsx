@@ -70,8 +70,8 @@ export default function Home() {
 
   const achievements = [
     { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, un evento oficial de AWS patrocinado por Xtrim, destacando en el Workshop especializado de IA." },
-    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas." },
-    { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles." }
+    { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas para garantizar la escalabilidad." },
+    { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles y estándares de excelencia." }
   ];
 
   return (
@@ -159,11 +159,11 @@ export default function Home() {
           <p className="text-xl leading-relaxed opacity-90 text-justify">
             Especialista en la arquitectura y despliegue de plataformas de alta disponibilidad, enfocado en la optimización de rendimientos críticos y la evolución de sistemas complejos. Con una sólida trayectoria liderando equipos de 5 a 7 profesionales, implemento soluciones de IA Generativa y Vibe Coding para transformar los ciclos de desarrollo, acelerar los tiempos de mercado (Time-to-Market) y garantizar la excelencia técnica en cada entrega.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {achievements.map((item, i) => (
-              <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
-                <div className="text-xl font-bold text-primary mb-2">{item.title}</div>
-                <div className="text-sm opacity-80 text-justify">{item.description}</div>
+              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col justify-center min-h-[180px]">
+                <div className="text-xl font-bold text-primary mb-3 text-center">{item.title}</div>
+                <div className="text-sm opacity-90 text-justify leading-relaxed">{item.description}</div>
               </div>
             ))}
           </div>
