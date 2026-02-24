@@ -23,7 +23,8 @@ import {
   ExternalLink,
   MessageSquare,
   Sparkles,
-  Bot
+  Bot,
+  Server
 } from 'lucide-react';
 
 export default function Home() {
@@ -33,11 +34,12 @@ export default function Home() {
 
   const skillCategories = [
     { title: 'IA & Vibe Coding', icon: <Sparkles className="w-5 h-5" />, skills: ['IA Generativa (LLMs)', 'Entrenamiento de Modelos', 'Vibe Coding', 'ChatGPT', 'Amazon Q', 'Claude', 'Cursor'] },
-    { title: 'Frontend', icon: <Code2 className="w-5 h-5" />, skills: ['React (Next.js)', 'TypeScript', 'Tailwind CSS'] },
+    { title: 'Infraestructura', icon: <Server className="w-5 h-5" />, skills: ['Servidores Windows & Linux', 'Mantenimiento On-Premise', 'Infraestructura Cloud', 'Instalación de Servidores'] },
     { title: 'Backend', icon: <Terminal className="w-5 h-5" />, skills: ['Node.js (NestJS, AdonisJS)', 'Go', 'Python (Flask)', 'C# (ASP.NET)', 'Java (Spring Boot)'] },
     { title: 'DevOps & Cloud', icon: <Cloud className="w-5 h-5" />, skills: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins'] },
+    { title: 'Frontend', icon: <Code2 className="w-5 h-5" />, skills: ['React (Next.js)', 'TypeScript', 'Tailwind CSS'] },
     { title: 'Arquitectura', icon: <Layers className="w-5 h-5" />, skills: ['Hexagonal', 'Microservicios', 'Event-Driven'] },
-    { title: 'Bases de Datos', icon: <Database className="w-5 h-5" />, skills: ['SQL', 'PostgreSQL', 'MongoDB', 'Redis'] },
+    { title: 'Bases de Datos', icon: <Database className="w-5 h-5" />, skills: ['SQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Oracle PL/SQL'] },
   ];
 
   const experience = [
