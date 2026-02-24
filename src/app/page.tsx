@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -82,7 +83,14 @@ export default function Home() {
             <a href="#skills" className="hover:text-primary transition-colors">Tecnologías</a>
             <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
           </nav>
-          <Button size="sm" className="bg-accent hover:bg-accent/90">Descargar CV</Button>
+          <div className="flex items-center gap-4">
+             <Button size="icon" variant="ghost" className="hidden sm:flex" asChild>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5" />
+                </a>
+              </Button>
+            <Button size="sm" className="bg-accent hover:bg-accent/90">Descargar CV</Button>
+          </div>
         </div>
       </header>
 
@@ -92,42 +100,54 @@ export default function Home() {
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
             Full Stack Senior
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900">
-            Julio Cesar <span className="text-accent">Bodero</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 leading-tight">
+            Julio Cesar <br/><span className="text-accent">Bodero Castro</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
             “+5 años desarrollando soluciones escalables en frontend y backend, con enfoque en automatización, CI/CD y arquitectura moderna.”
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8" asChild>
+            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
               <a href="#contacto">Contactar</a>
             </Button>
-            <Button size="lg" variant="outline" className="gap-2">
+            <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5">
               <FileText className="w-4 h-4" /> Ver Curriculum
             </Button>
           </div>
         </div>
-        <div className="relative aspect-square max-w-md mx-auto">
-          <div className="absolute inset-0 bg-primary/10 rounded-full scale-110 -z-10 animate-pulse"></div>
+        <div className="relative">
+          <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10"></div>
           {profileImage && (
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl border-8 border-white">
+            <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white">
               <Image
                 src={profileImage.imageUrl}
-                alt="Julio Cesar Bodero Castro"
+                alt={profileImage.description}
                 width={600}
                 height={600}
-                className="object-cover"
-                data-ai-hint="professional headshot"
+                className="object-cover w-full h-full"
+                data-ai-hint={profileImage.imageHint}
                 priority
               />
             </div>
           )}
+          {/* Decorative floating badges */}
+          <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground font-medium">Disponibilidad</p>
+                <p className="text-sm font-bold">Proyectos Senior</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Profile Section */}
-      <section id="perfil" className="py-20 bg-accent text-white">
+      <section id="perfil" className="py-24 bg-accent text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Perfil Profesional</h2>
           <p className="text-xl leading-relaxed opacity-90">
@@ -137,7 +157,7 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {achievements.map((item, i) => (
-              <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10">
+              <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
                 <div className="text-3xl font-bold text-primary mb-2">{item.title}</div>
                 <div className="text-sm opacity-80">{item.description}</div>
               </div>
@@ -150,22 +170,22 @@ export default function Home() {
       <section id="skills" className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Stack Tecnológico</h2>
-            <p className="text-muted-foreground">Herramientas y tecnologías que domino para crear productos digitales.</p>
+            <h2 className="text-4xl font-bold mb-4">Stack Tecnológico</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Dominio de herramientas modernas para el ciclo completo de vida del software.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillCategories.map((cat, i) => (
-              <Card key={i} className="border-none shadow-sm hover:shadow-md transition-all group">
-                <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <div className="p-2 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">
+              <Card key={i} className="border-none shadow-sm hover:shadow-xl transition-all group overflow-hidden">
+                <CardHeader className="flex flex-row items-center gap-4 pb-2 border-b border-slate-50 mb-4">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-white transition-all transform group-hover:scale-110">
                     {cat.icon}
                   </div>
-                  <CardTitle className="text-lg">{cat.title}</CardTitle>
+                  <CardTitle className="text-lg font-bold">{cat.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {cat.skills.map((skill, j) => (
-                      <Badge key={j} variant="secondary" className="font-normal bg-slate-100">
+                      <Badge key={j} variant="secondary" className="font-medium bg-white text-slate-700 border border-slate-200 hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-default">
                         {skill}
                       </Badge>
                     ))}
@@ -179,21 +199,23 @@ export default function Home() {
 
       {/* Experience Timeline */}
       <section id="experiencia" className="py-24 px-4 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-16 text-center">Trayectoria Profesional</h2>
+        <h2 className="text-4xl font-bold mb-16 text-center">Trayectoria Profesional</h2>
         <div className="space-y-12 max-w-4xl mx-auto">
           {experience.map((exp, i) => (
-            <div key={i} className="flex gap-6 relative">
+            <div key={i} className="flex gap-8 relative group">
               <div className="flex flex-col items-center">
-                <div className="w-4 h-4 rounded-full bg-primary mt-2"></div>
-                {i !== experience.length - 1 && <div className="w-0.5 h-full bg-slate-200"></div>}
+                <div className="w-5 h-5 rounded-full bg-primary ring-4 ring-primary/20 z-10 group-hover:scale-125 transition-transform"></div>
+                {i !== experience.length - 1 && <div className="w-0.5 h-full bg-slate-200 mt-2"></div>}
               </div>
-              <div className="pb-8">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <h3 className="text-xl font-bold text-accent">{exp.role}</h3>
-                  <Badge variant="outline" className="text-primary border-primary/20">{exp.period}</Badge>
+              <div className="pb-12">
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
+                  <h3 className="text-2xl font-bold text-accent group-hover:text-primary transition-colors">{exp.role}</h3>
+                  <Badge className="bg-primary/10 text-primary border-primary/20 px-3 py-1">{exp.period}</Badge>
                 </div>
-                <p className="font-semibold text-slate-600 mb-3">{exp.company}</p>
-                <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                <p className="font-bold text-slate-800 text-lg mb-4">{exp.company}</p>
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-primary/20 transition-all">
+                   <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -201,29 +223,34 @@ export default function Home() {
       </section>
 
       {/* Education & Certs */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">
+      <section className="py-24 bg-slate-900 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 relative">
           {/* Education */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <GraduationCap className="w-8 h-8 text-primary" />
+            <div className="flex items-center gap-3 mb-10">
+              <div className="p-3 bg-primary/20 rounded-xl">
+                <GraduationCap className="w-8 h-8 text-primary" />
+              </div>
               <h2 className="text-3xl font-bold">Formación Académica</h2>
             </div>
-            <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-              <h3 className="text-xl font-bold mb-1">Ingeniero en Telemática</h3>
-              <p className="text-primary font-medium mb-4">ESPOL (2014 – 2020)</p>
-              <div className="space-y-4 text-sm opacity-80">
-                <p>• Mención en Investigación</p>
-                <p>• Tesis: “Predicción de incidencias de cargas de trabajo excesivas en entornos virtualizados usando aprendizaje automático”</p>
+            <div className="bg-white/5 p-10 rounded-3xl border border-white/10 backdrop-blur-md relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10 group-hover:bg-primary/20 transition-all"></div>
+              <h3 className="text-2xl font-bold mb-2">Ingeniero en Telemática</h3>
+              <p className="text-primary font-bold text-lg mb-6">ESPOL (2014 – 2020)</p>
+              <div className="space-y-4 text-slate-300">
+                <p className="flex items-start gap-3">• <span>Mención en Investigación</span></p>
+                <p className="flex items-start gap-3">• <span>Tesis: “Predicción de incidencias de cargas de trabajo excesivas en entornos virtualizados usando aprendizaje automático”</span></p>
               </div>
             </div>
           </div>
 
           {/* Certs & Languages */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Award className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl font-bold">Reconocimientos</h2>
+            <div className="flex items-center gap-3 mb-10">
+              <div className="p-3 bg-primary/20 rounded-xl">
+                <Award className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-3xl font-bold">Certificaciones</h2>
             </div>
             <div className="space-y-4">
               {[
@@ -231,16 +258,25 @@ export default function Home() {
                 "Agile Project Management (2025)",
                 "React Avanzado (2022)"
               ].map((cert, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
-                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                  <span>{cert}</span>
+                <div key={i} className="flex items-center gap-4 p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-primary/50 transition-all">
+                  <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
+                  <span className="font-medium">{cert}</span>
                 </div>
               ))}
-              <div className="mt-8 p-6 bg-primary/10 rounded-xl border border-primary/20">
-                <h4 className="font-bold mb-2 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4" /> Idiomas
+              <div className="mt-12 p-8 bg-primary/10 rounded-2xl border border-primary/20">
+                <h4 className="font-bold text-xl mb-4 flex items-center gap-2">
+                  <MessageSquare className="w-5 h-5 text-primary" /> Idiomas
                 </h4>
-                <p className="text-sm">Inglés: Intermedio (Hablado) | Avanzado (Lectura Técnica)</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-300">Inglés (Hablado)</span>
+                    <span className="bg-white/10 px-2 py-0.5 rounded text-primary text-xs font-bold uppercase">Intermedio</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-300">Inglés (Lectura Técnica)</span>
+                    <span className="bg-white/10 px-2 py-0.5 rounded text-primary text-xs font-bold uppercase">Avanzado</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -249,66 +285,84 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contacto" className="py-24 px-4 bg-white">
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border">
-          <div className="bg-accent p-12 text-white md:w-2/5 flex flex-col justify-between">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">¿Hablamos?</h2>
-              <p className="opacity-80 mb-8">Estoy disponible para proyectos desafiantes y roles de liderazgo técnico.</p>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                    <Mail className="w-5 h-5" />
+        <div className="max-w-5xl mx-auto rounded-[3rem] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] flex flex-col md:flex-row border border-slate-100">
+          <div className="bg-accent p-12 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold mb-6">¿Hablamos?</h2>
+              <p className="opacity-80 text-lg mb-10 leading-relaxed">Estoy disponible para proyectos desafiantes y roles de liderazgo técnico.</p>
+              <div className="space-y-8">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
+                    <Mail className="w-6 h-6" />
                   </div>
-                  <span>j.boderoc@gmail.com</span>
+                  <div>
+                    <p className="text-xs opacity-60 font-bold uppercase tracking-wider">Email</p>
+                    <p className="font-medium">j.boderoc@gmail.com</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                    <Phone className="w-5 h-5" />
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
+                    <Phone className="w-6 h-6" />
                   </div>
-                  <span>+593 98 279 6756</span>
+                  <div>
+                    <p className="text-xs opacity-60 font-bold uppercase tracking-wider">Teléfono</p>
+                    <p className="font-medium">+593 98 279 6756</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                    <MapPin className="w-5 h-5" />
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
+                    <MapPin className="w-6 h-6" />
                   </div>
-                  <span>Ecuador</span>
+                  <div>
+                    <p className="text-xs opacity-60 font-bold uppercase tracking-wider">Ubicación</p>
+                    <p className="font-medium">Ecuador</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="flex gap-4 mt-12">
-              <Button size="icon" variant="ghost" className="hover:bg-white/10" asChild>
+            <div className="flex gap-4 mt-16 relative z-10">
+              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild>
                 <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-6 h-6" />
                 </a>
               </Button>
-              <Button size="icon" variant="ghost" className="hover:bg-white/10" asChild>
+              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild>
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-5 h-5" />
+                  <Github className="w-6 h-6" />
                 </a>
               </Button>
             </div>
           </div>
-          <div className="p-12 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
-            <h3 className="text-2xl font-bold mb-6">Envíame un mensaje</h3>
-            <p className="text-muted-foreground mb-8">
+          <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
+            <h3 className="text-3xl font-bold mb-6">Envíame un mensaje</h3>
+            <p className="text-muted-foreground mb-10 text-lg">
               Ya sea para una oportunidad laboral o una consulta técnica, estaré encantado de conversar.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2 w-full" asChild>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild>
               <a href="mailto:j.boderoc@gmail.com">
-                Abrir Correo Electrónico <ExternalLink className="w-4 h-4" />
+                Abrir Correo Electrónico <ExternalLink className="w-5 h-5" />
               </a>
             </Button>
+            <p className="mt-8 text-sm text-muted-foreground">Normalmente respondo en menos de 24 horas.</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-muted-foreground text-sm">
-          <p>© {new Date().getFullYear()} Julio Cesar Bodero Castro. Built with Next.js & Passion.</p>
-          <div className="flex gap-8">
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+      <footer className="py-16 border-t bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <span className="font-bold text-2xl tracking-tight text-accent">JCB<span className="text-primary">.</span></span>
+            <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Julio Cesar Bodero Castro.</p>
+          </div>
+          <div className="flex gap-10 font-medium text-slate-600">
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+              <Linkedin className="w-4 h-4" /> LinkedIn
+            </a>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+              <Github className="w-4 h-4" /> GitHub
+            </a>
           </div>
         </div>
       </footer>
