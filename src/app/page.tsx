@@ -105,11 +105,11 @@ export default function Home() {
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
             Senior Full Stack & Lead
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 leading-tight">
-            Julio Cesar <br/><span className="text-accent">Bodero Castro</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-slate-900 leading-tight text-balance">
+            Julio Cesar <span className="text-accent">Bodero Castro</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">Ingeniero en Telemática</p>
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed text-justify">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed text-left md:text-justify">
             Ingeniero en Telemática con mención en Investigación y más de 6 años de experiencia diseñando, desarrollando y optimizando plataformas tecnológicas escalables. Especializado en arquitectura de microservicios, integración de sistemas, optimización de rendimiento e implementación de soluciones con IA Generativa (LLMs). Experiencia liderando equipos técnicos y mejorando procesos mediante automatización y DevOps.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -154,16 +154,16 @@ export default function Home() {
 
       {/* Profile Section */}
       <section id="perfil" className="py-24 bg-accent text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Perfil Profesional</h2>
-          <p className="text-xl leading-relaxed opacity-90 text-justify">
+          <p className="text-xl leading-relaxed opacity-90 text-left md:text-justify max-w-4xl mx-auto">
             Especialista en la arquitectura y despliegue de plataformas de alta disponibilidad, enfocado en la optimización de rendimientos críticos y la evolución de sistemas complejos. Con una sólida trayectoria liderando equipos de 5 a 7 profesionales, implemento soluciones de IA Generativa y Vibe Coding para transformar los ciclos de desarrollo, acelerar los tiempos de mercado (Time-to-Market) y garantizar la excelencia técnica en cada entrega.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {achievements.map((item, i) => (
-              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col justify-center min-h-[180px]">
+              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col justify-center min-h-[200px]">
                 <div className="text-xl font-bold text-primary mb-3 text-center">{item.title}</div>
-                <div className="text-sm opacity-90 text-justify leading-relaxed">{item.description}</div>
+                <div className="text-sm opacity-90 text-left leading-relaxed">{item.description}</div>
               </div>
             ))}
           </div>
@@ -218,7 +218,7 @@ export default function Home() {
                 </div>
                 <p className="font-bold text-slate-800 text-lg mb-4">{exp.company}</p>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-primary/20 transition-all">
-                   <p className="text-muted-foreground leading-relaxed text-justify">{exp.description}</p>
+                   <p className="text-muted-foreground leading-relaxed text-left">{exp.description}</p>
                 </div>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10 group-hover:bg-primary/20 transition-all"></div>
               <h3 className="text-2xl font-bold mb-2">Ingeniero en Telemática</h3>
               <p className="text-primary font-bold text-lg mb-6">ESPOL (2014 – 2020)</p>
-              <div className="space-y-4 text-slate-300 text-justify">
+              <div className="space-y-4 text-slate-300 text-left">
                 <p className="flex items-start gap-3">• <span>Mención en Investigación</span></p>
                 <p className="flex items-start gap-3">• <span>Tesis: “Predicción de incidencias de cargas de trabajo excesivas en entornos virtualizados usando aprendizaje automático”</span></p>
               </div>
@@ -292,7 +292,7 @@ export default function Home() {
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">¿Hablamos?</h2>
-              <p className="opacity-80 text-lg mb-10 leading-relaxed text-justify">Disponible para liderar proyectos que involucren IA, arquitectura escalable y optimización de plataformas de alto rendimiento.</p>
+              <p className="opacity-80 text-lg mb-10 leading-relaxed text-left">Disponible para liderar proyectos que involucren IA, arquitectura escalable y optimización de plataformas de alto rendimiento.</p>
               <div className="space-y-8">
                 <div className="flex items-center gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
@@ -338,7 +338,7 @@ export default function Home() {
           </div>
           <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
             <h3 className="text-3xl font-bold mb-6">Envíame un mensaje</h3>
-            <p className="text-muted-foreground mb-10 text-lg text-justify">
+            <p className="text-muted-foreground mb-10 text-lg text-left">
               Si buscas optimizar tu plataforma tecnológica o necesitas un Líder Técnico Senior con enfoque en resultados y escalabilidad, conversemos sobre cómo puedo aportar valor a tu organización.
             </p>
             <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild>
