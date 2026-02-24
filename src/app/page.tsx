@@ -89,7 +89,9 @@ export default function Home() {
                   <Github className="w-5 h-5" />
                 </a>
               </Button>
-            <Button size="sm" className="bg-accent hover:bg-accent/90">Descargar CV</Button>
+            <Button size="sm" className="bg-accent hover:bg-accent/90" asChild>
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">Descargar CV</a>
+            </Button>
           </div>
         </div>
       </header>
@@ -111,8 +113,10 @@ export default function Home() {
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
               <a href="#contacto">Contactar</a>
             </Button>
-            <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5">
-              <FileText className="w-4 h-4" /> Ver Curriculum
+            <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5" asChild>
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                <FileText className="w-4 h-4" /> Ver Curriculum
+              </a>
             </Button>
           </div>
         </div>
