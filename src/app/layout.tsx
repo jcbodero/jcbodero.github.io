@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Julio Bodero | Portfolio',
-  description: 'Portafolio profesional de Julio Bodero - Desarrollador y Arquitecto de Software',
+  title: 'Julio Bodero | Ingeniero Telemática & Full Stack Senior',
+  description: 'Portafolio profesional de Julio Cesar Bodero Castro - Especialista en desarrollo Full Stack, Arquitectura y DevOps.',
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
