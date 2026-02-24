@@ -69,7 +69,7 @@ export default function Home() {
   ];
 
   const achievements = [
-    { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, destacando en el Workshop especializado de IA." },
+    { title: "2do Lugar Amazon Q", description: "Reconocimiento nacional en el concurso Amazon Q Developer, un evento oficial de AWS patrocinado por Xtrim, destacando en el Workshop especializado de IA." },
     { title: "Arquitectura Escalable", description: "Experto en el levantamiento de plataformas de alta disponibilidad y optimización de arquitecturas críticas." },
     { title: "Liderazgo de Equipos", description: "Gestión exitosa de equipos técnicos multidisciplinarios (5 a 7 personas) bajo marcos de trabajo ágiles." }
   ];
