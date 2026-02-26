@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_EC',
-    url: 'https://jcbodero.com/jcbodero.github.io/',
+    url: 'https://jcbodero.com/',
     title: 'Julio Cesar Bodero Castro | Portafolio Profesional',
     description: 'Especialista en IA Generativa, Arquitecturas Escalables y Liderazgo de Equipos Técnicos.',
     siteName: 'Portafolio de Julio Bodero',

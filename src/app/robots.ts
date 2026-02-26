@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://jcbodero.com/jcbodero.github.io/sitemap.xml',
+    sitemap: 'https://jcbodero.com/sitemap.xml',
   }
 }
