@@ -4,8 +4,10 @@ import mixpanel from 'mixpanel-browser';
 const MIXPANEL_TOKEN = process.env.NEXT_PUBLIC_MIXPANEL_TOKEN;
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isBrowser = typeof window !== 'undefined';
 
 export const initMixpanel = () => {
+  if (!isBrowser) return;
   if (!MIXPANEL_TOKEN || MIXPANEL_TOKEN === 'YOUR_MIXPANEL_TOKEN_HERE') {
     console.warn('Mixpanel Token no configurado o es el valor por defecto. Tracking desactivado.');
     return;
@@ -19,7 +21,7 @@ export const initMixpanel = () => {
 };
 
 export const trackEvent = (eventName: string, props?: Record<string, any>) => {
-  if (!MIXPANEL_TOKEN || MIXPANEL_TOKEN === 'YOUR_MIXPANEL_TOKEN_HERE') return;
+  if (!isBrowser || !MIXPANEL_TOKEN || MIXPANEL_TOKEN === 'YOUR_MIXPANEL_TOKEN_HERE') return;
   mixpanel.track(eventName, props);
 };
 
