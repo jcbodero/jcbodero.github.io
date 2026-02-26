@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-profile",
-      "description": "Retrato profesional de Julio Cesar Bodero",
+      "description": "Espacio para retrato profesional de Julio Cesar Bodero",
       "imageUrl": "",
-      "imageHint": "professional man glasses blue shirt"
+      "imageHint": "professional profile placeholder"
     },
     {
       "id": "project-1",

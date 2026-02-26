@@ -1,11 +1,10 @@
-
 {
   "placeholderImages": [
     {
       "id": "hero-profile",
-      "description": "Retrato profesional de Julio Cesar Bodero",
-      "imageUrl": "https://picsum.photos/seed/julio-bodero-profile/600/600",
-      "imageHint": "professional man glasses blue shirt"
+      "description": "Espacio para retrato profesional de Julio Cesar Bodero",
+      "imageUrl": "",
+      "imageHint": "professional profile placeholder"
     },
     {
       "id": "project-1",

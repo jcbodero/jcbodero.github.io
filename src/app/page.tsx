@@ -30,7 +30,8 @@ import {
   Trophy,
   Cpu,
   ShieldCheck,
-  Languages
+  Languages,
+  User
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -233,13 +234,15 @@ const translations = {
 export default function Home() {
   const [lang, setLang] = useState<'es' | 'en'>('es');
   const [mounted, setMounted] = useState(false);
+  const [currentYear, setCurrentYear] = useState('');
 
   useEffect(() => {
     setMounted(true);
+    setCurrentYear(new Date().getFullYear().toString());
   }, []);
 
   if (!mounted) {
-    return <div className="min-h-screen bg-white" />; // Evita parpadeos de hidratación
+    return <div className="min-h-screen bg-white" />;
   }
 
   const t = translations[lang];
@@ -339,8 +342,8 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10"></div>
-          {profileImage && (
-            <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white">
+          <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white bg-slate-100 flex items-center justify-center">
+            {profileImage?.imageUrl ? (
               <Image
                 src={profileImage.imageUrl}
                 alt={profileImage.description}
@@ -350,8 +353,13 @@ export default function Home() {
                 data-ai-hint={profileImage.imageHint}
                 priority
               />
-            </div>
-          )}
+            ) : (
+              <div className="flex flex-col items-center justify-center text-slate-400 gap-4">
+                <User className="w-32 h-32 opacity-20" />
+                <span className="text-sm font-medium opacity-40 uppercase tracking-widest">{lang === 'es' ? 'Tu Foto Aquí' : 'Your Photo Here'}</span>
+              </div>
+            )}
+          </div>
           <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
@@ -590,7 +598,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="font-bold text-2xl tracking-tight text-accent">JCB<span className="text-primary">.</span></span>
-            <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Julio Cesar Bodero Castro. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}</p>
+            <p className="text-muted-foreground text-sm">© {currentYear} Julio Cesar Bodero Castro. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}</p>
           </div>
           <div className="flex gap-10 font-medium text-slate-600">
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
