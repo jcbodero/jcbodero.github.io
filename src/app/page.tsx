@@ -329,8 +329,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        <div className={!profileImage?.imageUrl ? "md:col-span-2 md:text-center md:flex md:flex-col md:items-center" : ""}>
+      <section className="pt-40 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full flex flex-col items-center text-center">
+        <div className="md:max-w-3xl">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
             {t.hero.role}
           </Badge>
@@ -338,10 +338,10 @@ export default function Home() {
             {t.hero.title} <span className="text-accent">{t.hero.subtitle}</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">{t.hero.degree}</p>
-          <p className={`text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed ${!profileImage?.imageUrl ? "md:text-center" : "text-left"}`}>
+          <p className="text-lg text-muted-foreground mb-10 leading-relaxed text-justify">
             {t.hero.description}
           </p>
-          <div className="flex flex-wrap gap-4 justify-start md:justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild onClick={() => trackEvent('Hero CTA Click')}>
               <a href="#contacto">{t.hero.cta}</a>
             </Button>
@@ -352,50 +352,26 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        
-        {profileImage?.imageUrl && (
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10"></div>
-            <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white bg-slate-100 flex items-center justify-center">
-              <Image
-                src={profileImage.imageUrl}
-                alt={profileImage.description}
-                width={600}
-                height={600}
-                className="object-cover w-full h-full"
-                data-ai-hint={profileImage.imageHint}
-                priority
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground font-medium">{t.hero.expertise}</p>
-                  <p className="text-sm font-bold">{t.hero.expertiseValue}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* Profile Section */}
       <section id="perfil" className="py-24 bg-accent text-white">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">{t.profile.title}</h2>
-          <p className="text-xl leading-relaxed opacity-90 text-left md:text-justify max-w-4xl mx-auto">
-            {t.profile.description}
-          </p>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-8">{t.profile.title}</h2>
+            <p className="text-xl leading-relaxed opacity-90 text-justify max-w-4xl mx-auto">
+              {t.profile.description}
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {t.profile.achievements.map((item, i) => (
-              <div key={i} className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col items-center justify-center text-center min-h-[260px]">
-                <div className="flex flex-col items-center">
+              <div key={i} className="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-all flex flex-col items-center min-h-[300px] shadow-lg">
+                <div className="flex flex-col items-center w-full">
                   {achievementIcons[i]}
-                  <div className="text-xl font-bold text-primary mb-3">{item.title}</div>
-                  <div className="text-sm opacity-90 text-left leading-relaxed">{item.desc}</div>
+                  <div className="text-xl font-bold text-primary mb-4 text-center">{item.title}</div>
+                  <div className="text-sm opacity-90 text-justify leading-relaxed w-full">
+                    {item.desc}
+                  </div>
                 </div>
               </div>
             ))}
@@ -451,7 +427,7 @@ export default function Home() {
                 </div>
                 <p className="font-bold text-slate-800 text-lg mb-4">{exp.company}</p>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:border-primary/20 transition-all">
-                   <p className="text-muted-foreground leading-relaxed text-left">{exp.description}</p>
+                   <p className="text-muted-foreground leading-relaxed text-justify">{exp.description}</p>
                 </div>
               </div>
             </div>
@@ -473,8 +449,11 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10 group-hover:bg-primary/20 transition-all"></div>
               <h3 className="text-2xl font-bold mb-2">{t.education.degree}</h3>
               <p className="text-primary font-bold text-lg mb-6">{t.education.university}</p>
-              <div className="space-y-4 text-slate-300 text-left">
-                <p className="flex items-start gap-3">• <span>{t.education.thesis}</span></p>
+              <div className="space-y-4 text-slate-300">
+                <p className="flex items-start gap-3 text-justify">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                  <span>{t.education.thesis}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -524,7 +503,7 @@ export default function Home() {
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">{t.contact.title}</h2>
-              <p className="opacity-80 text-lg mb-10 leading-relaxed text-left">{t.contact.subtitle}</p>
+              <p className="opacity-80 text-lg mb-10 leading-relaxed text-justify">{t.contact.subtitle}</p>
               <div className="space-y-6">
                 <div className="flex items-center gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
@@ -579,9 +558,9 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center text-center">
-            <h3 className="text-3xl font-bold mb-6">{t.contact.formTitle}</h3>
-            <p className="text-muted-foreground mb-10 text-lg text-left">
+          <div className="p-16 md:w-3/5 bg-slate-50 flex flex-col justify-center">
+            <h3 className="text-3xl font-bold mb-6 text-center">{t.contact.formTitle}</h3>
+            <p className="text-muted-foreground mb-10 text-lg text-justify">
               {t.contact.formDesc}
             </p>
             <div className="flex flex-col gap-4">
@@ -596,7 +575,7 @@ export default function Home() {
                 </a>
               </Button>
             </div>
-            <p className="mt-8 text-sm text-muted-foreground">{t.contact.responseTime}</p>
+            <p className="mt-8 text-sm text-muted-foreground text-center">{t.contact.responseTime}</p>
           </div>
         </div>
       </section>
