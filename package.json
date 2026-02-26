@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "deploy": "gh-pages -d out"
+    "deploy": "node -e \"require('fs').closeSync(require('fs').openSync('out/.nojekyll','w'))\" && gh-pages -d out"
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.28.0",

@@ -2,8 +2,8 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/jcbodero.github.io',
-  assetPrefix: '/jcbodero.github.io/',
+  basePath: '',
+  assetPrefix: '',
   trailingSlash: true,
   typescript: {
     ignoreBuildErrors: true,
