@@ -531,7 +531,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-xs opacity-60 font-bold uppercase tracking-wider">{lang === 'es' ? 'Teléfono' : 'Phone'}</p>
-                    <p className="font-medium">+593 98 279 6756</p>
+                    <p className="font-medium">+593939338749</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-5">
