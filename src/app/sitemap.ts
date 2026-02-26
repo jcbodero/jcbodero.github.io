@@ -5,8 +5,8 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://jcbodero.com/jcbodero.github.io',
-      lastModified: new Date().toISOString(),
+      url: 'https://jcbodero.com/jcbodero.github.io/',
+      lastModified: '2024-05-22',
       changeFrequency: 'monthly',
       priority: 1,
     },
