@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { initMixpanel, trackEvent, trackLink } from '@/lib/mixpanel';
 import { 
   Layers, 
   Cloud, 
@@ -235,9 +236,15 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [currentYear, setCurrentYear] = useState('');
 
+  const githubUrl = "https://github.com/jcbodero";
+  const linkedinUrl = "https://linkedin.com/in/juliobodc";
+  const whatsappUrl = "https://wa.me/593982796756";
+
   useEffect(() => {
     setMounted(true);
     setCurrentYear(new Date().getFullYear().toString());
+    initMixpanel();
+    trackEvent('Page Mounted', { initial_language: lang });
   }, []);
 
   if (!mounted) {
@@ -246,9 +253,15 @@ export default function Home() {
 
   const t = translations[lang];
   const profileImage = PlaceHolderImages.find(img => img.id === 'hero-profile');
-  const githubUrl = "https://github.com/jcbodero";
-  const linkedinUrl = "https://linkedin.com/in/juliobodc";
-  const whatsappUrl = "https://wa.me/593982796756";
+
+  const handleLanguageSwitch = (newLang: 'es' | 'en') => {
+    setLang(newLang);
+    trackEvent('Language Switched', { language: newLang });
+  };
+
+  const handleLinkClick = (name: string, url: string) => {
+    trackLink(url, name);
+  };
 
   const skillIcons = [
     <Sparkles key="1" className="w-5 h-5" />,
@@ -284,10 +297,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <span className="font-bold text-xl tracking-tight text-accent">JCB<span className="text-primary">.</span></span>
           <nav className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="#perfil" className="hover:text-primary transition-colors">{t.nav.profile}</a>
-            <a href="#experiencia" className="hover:text-primary transition-colors">{t.nav.experience}</a>
-            <a href="#skills" className="hover:text-primary transition-colors">{t.nav.skills}</a>
-            <a href="#contacto" className="hover:text-primary transition-colors">{t.nav.contact}</a>
+            <a href="#perfil" className="hover:text-primary transition-colors" onClick={() => trackEvent('Nav Click', { section: 'perfil' })}>{t.nav.profile}</a>
+            <a href="#experiencia" className="hover:text-primary transition-colors" onClick={() => trackEvent('Nav Click', { section: 'experiencia' })}>{t.nav.experience}</a>
+            <a href="#skills" className="hover:text-primary transition-colors" onClick={() => trackEvent('Nav Click', { section: 'skills' })}>{t.nav.skills}</a>
+            <a href="#contacto" className="hover:text-primary transition-colors" onClick={() => trackEvent('Nav Click', { section: 'contacto' })}>{t.nav.contact}</a>
           </nav>
           <div className="flex items-center gap-4">
             <DropdownMenu>
@@ -298,17 +311,17 @@ export default function Home() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLang('es')}>Español (ESP)</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLang('en')}>English (ENG)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageSwitch('es')}>Español (ESP)</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageSwitch('en')}>English (ENG)</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button size="icon" variant="ghost" className="hidden sm:flex" asChild>
+            <Button size="icon" variant="ghost" className="hidden sm:flex" asChild onClick={() => handleLinkClick('GitHub Top', githubUrl)}>
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5" />
               </a>
             </Button>
-            <Button size="sm" className="bg-accent hover:bg-accent/90" asChild>
+            <Button size="sm" className="bg-accent hover:bg-accent/90" asChild onClick={() => handleLinkClick('LinkedIn Top', linkedinUrl)}>
               <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">{t.nav.resume}</a>
             </Button>
           </div>
@@ -329,10 +342,10 @@ export default function Home() {
             {t.hero.description}
           </p>
           <div className="flex flex-wrap gap-4 justify-start md:justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
+            <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild onClick={() => trackEvent('Hero CTA Click')}>
               <a href="#contacto">{t.hero.cta}</a>
             </Button>
-            <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5" asChild>
+            <Button size="lg" variant="outline" className="gap-2 border-accent text-accent hover:bg-accent/5" asChild onClick={() => handleLinkClick('LinkedIn Hero', linkedinUrl)}>
               <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                 <FileText className="w-4 h-4" /> {t.hero.viewProfile}
               </a>
@@ -528,7 +541,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-xs opacity-60 font-bold uppercase tracking-wider">WhatsApp</p>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors flex items-center gap-2">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors flex items-center gap-2" onClick={() => handleLinkClick('WhatsApp Contact', whatsappUrl)}>
                       {lang === 'es' ? 'Enviar Mensaje Directo' : 'Send Direct Message'} <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
@@ -554,12 +567,12 @@ export default function Home() {
               </div>
             </div>
             <div className="flex gap-4 mt-12 relative z-10">
-              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild>
+              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild onClick={() => handleLinkClick('LinkedIn Sidebar', linkedinUrl)}>
                 <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-6 h-6" />
                 </a>
               </Button>
-              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild>
+              <Button size="icon" variant="secondary" className="bg-white/10 hover:bg-white text-white hover:text-accent rounded-xl" asChild onClick={() => handleLinkClick('GitHub Sidebar', githubUrl)}>
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="w-6 h-6" />
                 </a>
@@ -572,12 +585,12 @@ export default function Home() {
               {t.contact.formDesc}
             </p>
             <div className="flex flex-col gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-3 w-full h-16 rounded-2xl text-lg font-bold shadow-xl shadow-primary/20" asChild onClick={() => trackEvent('Email Action')}>
                 <a href="mailto:j.boderoc@gmail.com">
                   {t.contact.emailBtn} <ExternalLink className="w-5 h-5" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-[#25D366] text-[#25D366] hover:bg-[#25D366]/5 gap-3 w-full h-16 rounded-2xl text-lg font-bold" asChild>
+              <Button size="lg" variant="outline" className="border-[#25D366] text-[#25D366] hover:bg-[#25D366]/5 gap-3 w-full h-16 rounded-2xl text-lg font-bold" asChild onClick={() => handleLinkClick('WhatsApp Footer', whatsappUrl)}>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   {t.contact.whatsappBtn} <WhatsAppIcon className="w-5 h-5" />
                 </a>
@@ -596,13 +609,13 @@ export default function Home() {
             <p className="text-muted-foreground text-sm">© {currentYear} Julio Cesar Bodero Castro. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}</p>
           </div>
           <div className="flex gap-10 font-medium text-slate-600">
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2" onClick={() => handleLinkClick('LinkedIn Footer', linkedinUrl)}>
               <Linkedin className="w-4 h-4" /> LinkedIn
             </a>
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2" onClick={() => handleLinkClick('GitHub Footer', githubUrl)}>
               <Github className="w-4 h-4" /> GitHub
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors flex items-center gap-2">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors flex items-center gap-2" onClick={() => handleLinkClick('WhatsApp Footer Bottom', whatsappUrl)}>
               <WhatsAppIcon className="w-4 h-4" /> WhatsApp
             </a>
           </div>
