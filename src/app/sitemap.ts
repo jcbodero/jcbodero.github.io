@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://jcbodero.com/jcbodero.github.io/',
-      lastModified: '2024-05-22',
+      lastModified: '2025-05-22',
       changeFrequency: 'monthly',
       priority: 1,
     },
