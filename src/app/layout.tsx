@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -25,10 +24,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Julio Cesar Bodero Castro' }],
   creator: 'Julio Cesar Bodero Castro',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_EC',
-    url: 'https://jcbodero.com',
+    url: 'https://jcbodero.com/jcbodero.github.io/',
     title: 'Julio Cesar Bodero Castro | Portafolio Profesional',
     description: 'Especialista en IA Generativa, Arquitecturas Escalables y Liderazgo de Equipos Técnicos.',
     siteName: 'Portafolio de Julio Bodero',
