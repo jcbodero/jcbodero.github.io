@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -232,8 +232,17 @@ const translations = {
 
 export default function Home() {
   const [lang, setLang] = useState<'es' | 'en'>('es');
-  const t = translations[lang];
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-white" />; // Evita parpadeos de hidratación
+  }
+
+  const t = translations[lang];
   const profileImage = PlaceHolderImages.find(img => img.id === 'hero-profile');
   const githubUrl = "https://github.com/jcbodero";
   const linkedinUrl = "https://linkedin.com/in/juliobodc";
