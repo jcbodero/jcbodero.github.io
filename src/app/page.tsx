@@ -317,7 +317,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-        <div>
+        <div className={!profileImage?.imageUrl ? "md:col-span-2 md:text-center md:flex md:flex-col md:items-center" : ""}>
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 px-4 py-1">
             {t.hero.role}
           </Badge>
@@ -325,10 +325,10 @@ export default function Home() {
             {t.hero.title} <span className="text-accent">{t.hero.subtitle}</span>
           </h1>
           <p className="text-xl font-medium text-primary mb-6">{t.hero.degree}</p>
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed text-left">
+          <p className={`text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed ${!profileImage?.imageUrl ? "md:text-center" : "text-left"}`}>
             {t.hero.description}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-start md:justify-center">
             <Button size="lg" className="bg-accent hover:bg-accent/90 px-8 shadow-lg shadow-accent/20" asChild>
               <a href="#contacto">{t.hero.cta}</a>
             </Button>
@@ -339,10 +339,11 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="relative">
-          <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10"></div>
-          <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white bg-slate-100 flex items-center justify-center">
-            {profileImage?.imageUrl ? (
+        
+        {profileImage?.imageUrl && (
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl blur-2xl -z-10"></div>
+            <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl border-[12px] border-white bg-slate-100 flex items-center justify-center">
               <Image
                 src={profileImage.imageUrl}
                 alt={profileImage.description}
@@ -352,25 +353,20 @@ export default function Home() {
                 data-ai-hint={profileImage.imageHint}
                 priority
               />
-            ) : (
-              <div className="flex flex-col items-center justify-center text-slate-400 gap-4">
-                <User className="w-32 h-32 opacity-20" />
-                <span className="text-sm font-medium opacity-40 uppercase tracking-widest">{lang === 'es' ? 'Tu Foto Aquí' : 'Your Photo Here'}</span>
-              </div>
-            )}
-          </div>
-          <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                <Zap className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground font-medium">{t.hero.expertise}</p>
-                <p className="text-sm font-bold">{t.hero.expertiseValue}</p>
+            </div>
+            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl hidden lg:block border border-slate-100">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground font-medium">{t.hero.expertise}</p>
+                  <p className="text-sm font-bold">{t.hero.expertiseValue}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </section>
 
       {/* Profile Section */}
