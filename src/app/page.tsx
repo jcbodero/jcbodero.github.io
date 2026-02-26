@@ -248,7 +248,7 @@ export default function Home() {
 
   const githubUrl = "https://github.com/jcbodero";
   const linkedinUrl = "https://linkedin.com/in/juliobodc";
-  const whatsappUrl = "https://wa.me/593982796756";
+  const whatsappUrl = "https://wa.me/593939338749";
 
   useEffect(() => {
     setMounted(true);
